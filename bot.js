@@ -5,7 +5,9 @@ const bot = new TeleBot({
 });
 
 
-//bot.on('/start');
+bot.on('/start',(msg) => {
+  let txt = "Welkom " + msg.from.first_name + " bij deze opendag bot";
+});
 
 
 
