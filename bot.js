@@ -22,7 +22,7 @@ bot.on('/start',(msg) => {
 
 bot.on('/commando',(msg) => {
   let text = "/start is start schrem, /docenten {vak} laat alle docenten van een vak zien,/faq show laat alle meestgestelde vragen achter /faq {nummer} beantwoord een vraag,met /beordeel kan je een opmerking achter laten dat word verstuurd naar een database,/contact krijg je contact info over de maker bilal,/versie laat de huidigen versie van de bot zien.,/sesie laat de volgende opendagen zien"
-  return bot.sendMessage(msg.from.is,text);
+  return bot.sendMessage(msg.from.id,text);
 });
 
 
@@ -32,6 +32,14 @@ bot.on('/versie',(msg) => {
 
 
 });
+
+
+bot.on('/sesie',(msg) => {
+  let txt_sesie = "Dit zijn de aankomende opendagen of openavonden: op donderdag 25 januari 2018 (open avond) en zaterdag 27 januari 2018 (open dag) ";
+  return bot.sendMessage(msg.form.id,txt_sesie);
+});
+
+
 
 bot.on(/^\/docenten (.+)/,(msg,props) => {
   const vak = props.match[1];
@@ -135,7 +143,7 @@ bot.on(/^\/beordeel (.+)/,(msg,props) => {
   let bericht = props.match[1];
 
   let voledigen_naam = msg.from.first_name + " " + msg.from.last_name;
-
+  let bedankt = "Bedankt " + msg.from.first_name + " Voor uw reactie";
 
 
   let data = {
@@ -148,7 +156,7 @@ bot.on(/^\/beordeel (.+)/,(msg,props) => {
   let ref = database.ref("beoordeeling");
   ref.push(data)
 
-
+  return bot.sendMessage(msg.from.id,bedankt);
 
 
 
