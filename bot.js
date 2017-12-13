@@ -4,7 +4,6 @@ const bot = new TeleBot({
     token: '456998554:AAF7MBe8K0urL08vefgnZWiXAGWEl1CtiTA'
 });
 
-
 bot.on('/start',(msg) => {
   var txt = "Welkom " + msg.from.first_name + " bij de opendag bot";
   return bot.sendMessage(msg.from.id,txt);
@@ -96,6 +95,28 @@ if (nummer == "show") {
 
 
 });
+
+
+
+bot.on('/contact',(msg) => {
+
+return bot.sendContact(msg.from.id,"0344537343","Bilal","ayachi");
+
+
+
+});
+
+
+
+bot.on(/^\/verstuur (.+)/,(msg) => {
+  let bericht = props.match[1];
+
+
+
+
+
+});
+
 
 
 
