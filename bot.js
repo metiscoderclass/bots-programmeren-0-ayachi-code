@@ -33,11 +33,6 @@ bot.on('/versie',(msg) => {
 
 });
 
-
-
-
-
-
 bot.on(/^\/docenten (.+)/,(msg,props) => {
   const vak = props.match[1];
   if (vak == "informatica") {
