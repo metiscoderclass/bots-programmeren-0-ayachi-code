@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ayachi-code/open-dag-telegram-bot/issues"
   },
-  "homepage": "https://github.com/ayachi-code/open-dag-telegram-bot#readme"
+  "homepage": "https://github.com/ayachi-code/open-dag-telegram-bot#readme",
+  "dependencies": {
+    "firebase": "^4.8.0"
+  }
 }
