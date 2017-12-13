@@ -15,9 +15,27 @@ const bot = new TeleBot({
 });
 
 bot.on('/start',(msg) => {
-  var txt = "Welkom " + msg.from.first_name + " bij de opendag bot";
+  let txt = "Welkom " + msg.from.first_name + " bij de opendag bot door /commando in te typen krijg je alle comandos";
   return bot.sendMessage(msg.from.id,txt);
 });
+
+
+bot.on('/commando',(msg) => {
+  let text = "/start is start schrem, /docenten {vak} laat alle docenten van een vak zien,/faq show laat alle meestgestelde vragen achter /faq {nummer} beantwoord een vraag,met /beordeel kan je een opmerking achter laten dat word verstuurd naar een database,/contact krijg je contact info over de maker bilal,/versie laat de huidigen versie van de bot zien.,/sesie laat de volgende opendagen zien"
+  return bot.sendMessage(msg.from.is,text);
+});
+
+
+bot.on('/versie',(msg) => {
+  let txt = "2.5 is de huidigen versie van de bot...";
+  return bot.sendMessage(msg.from.id,txt);
+
+
+});
+
+
+
+
 
 
 bot.on(/^\/docenten (.+)/,(msg,props) => {
@@ -118,11 +136,15 @@ return bot.sendContact(msg.from.id,"email","Bilal","ayachi");
 
 
 
-bot.on(/^\/verstuur (.+)/,(msg,props) => {
+bot.on(/^\/beordeel (.+)/,(msg,props) => {
 
   let bericht = props.match[1];
 
   let database = admin.database().ref("testbilal").push(bericht);
+
+
+
+
 
 
 
