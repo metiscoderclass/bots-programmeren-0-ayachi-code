@@ -132,12 +132,21 @@ return bot.sendContact(msg.from.id,"email","Bilal","ayachi");
 
 
 bot.on(/^\/beordeel (.+)/,(msg,props) => {
-
   let bericht = props.match[1];
 
-  let database = admin.database().ref("testbilal").push(bericht);
+  let voledigen_naam = msg.from.first_name + " " + msg.from.last_name;
 
 
+
+  let data = {
+    naam: voledigen_naam,
+    beoordeeling: bericht
+  }
+
+
+  let database = admin.database();
+  let ref = database.ref("beoordeeling");
+  ref.push(data)
 
 
 
