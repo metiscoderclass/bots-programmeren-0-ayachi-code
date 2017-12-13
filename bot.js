@@ -11,7 +11,6 @@ bot.on('/start',(msg) => {
 });
 
 
-
 bot.on(/^\/docenten (.+)/,(msg,props) => {
   const vak = props.match[1];
   if (vak == "informatica") {
@@ -53,7 +52,30 @@ bot.on(/^\/docenten (.+)/,(msg,props) => {
   }else {
     return bot.sendMessage(msg.from.id,"Het vak bestaat niet of er zijn er geen docenten voor... ")
   }
+});
 
+
+bot.on(/^\/faq (.+)/,(msg,props) => {
+var nummer = props.match[1];
+
+let txt2 = `
+De Coderclass is een nieuwe opleiding op het Metis Montessori Lyceum (MML) waarin informatica een belangrijk ondeimg_3860rdeel is. Bijzonder gemotiveerde leerlingen met grote interesse voor ICT horen tot de doelgroep.Vanaf het eerste jaar krijgen de leerlingen, die in deze bijzondere profielklas zitten, een intensief programma van 5 uur in de week waarin ze de fijne kneepjes van het vak leren. Iedere leerling kan op zijn eigen tempo aan het werk gaan om zich te verdiepen of te verbreden in dit inspirerende vakgebied. Ook doen de leerlingen vier keer per jaar een project waarbij er sprake is van een echte opdrachtgever (bedrijf of vervolgopleiding). Heel bijzonder is dat het MML intensief samenwerkt met bedrijven. Docenten en leerlingen kunnen er stage lopen. Bovendien leveren diverse bedrijven ons realistische opdrachten zodat leerlingen echt weten hoe het bedrijfsleven werkt.
+
+Naast informatica volgen leerlingen het normale programma voor het voortgezet onderwijs en doen ze examen voor een diploma. De speerpunten van het MML zoals montessori-onderwijs, wereldburgerschap of ondernemerschap vormen een ondeelbaar onderdeel van dit programma.
+
+`;
+
+
+
+if (nummer == "show") {
+  var txt = "0:Wat is de coderclass,1:Hoeveel uur informatica hebben ze per week,2:Tot welke klas gaat het,3:Wat zijn badges ?"
+  return bot.sendMessage(msg.from.id,txt);
+
+} else if (nummer == "0") {
+  return bot.sendMessage(msg.from.id,txt2);
+} else if (nummer == "1") {
+
+}
 
 
 
