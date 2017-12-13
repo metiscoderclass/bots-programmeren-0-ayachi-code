@@ -118,8 +118,13 @@ return bot.sendContact(msg.from.id,"email","Bilal","ayachi");
 
 
 
-bot.on(/^\/verstuur (.+)/,(msg) => {
+bot.on(/^\/verstuur (.+)/,(msg,props) => {
+
   let bericht = props.match[1];
+
+  let database = admin.database().ref("testbilal").push(bericht);
+
+
 
 });
 
