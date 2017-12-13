@@ -1,4 +1,14 @@
 const TeleBot = require('telebot');
+const admin = require("firebase-admin");
+
+
+var serviceAccount = require("./opendag-bot-firebase-adminsdk-qpl1s-d10e6a8ade.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://opendag-bot.firebaseio.com"
+});
+
 
 const bot = new TeleBot({
     token: '456998554:AAF7MBe8K0urL08vefgnZWiXAGWEl1CtiTA'
@@ -100,7 +110,7 @@ if (nummer == "show") {
 
 bot.on('/contact',(msg) => {
 
-return bot.sendContact(msg.from.id,"0344537343","Bilal","ayachi");
+return bot.sendContact(msg.from.id,"email","Bilal","ayachi");
 
 
 
@@ -110,8 +120,6 @@ return bot.sendContact(msg.from.id,"0344537343","Bilal","ayachi");
 
 bot.on(/^\/verstuur (.+)/,(msg) => {
   let bericht = props.match[1];
-
-
 
 });
 

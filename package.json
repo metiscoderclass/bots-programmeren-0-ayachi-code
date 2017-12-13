@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/ayachi-code/open-dag-telegram-bot#readme",
   "dependencies": {
-    "firebase": "^4.8.0"
+    "firebase": "^4.8.0",
+    "firebase-admin": "^5.5.1"
   }
 }
