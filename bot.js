@@ -67,14 +67,29 @@ Naast informatica volgen leerlingen het normale programma voor het voortgezet on
 
 
 
+let vragen_antwoord = {
+  txt2: txt2,
+  txt3: "De leerlingen krijgen 5 uur in de week informatica",
+  txt4: "De Coderclass begint in de brugklas en endigt tot de 5e of 6e klas",
+  txt5: "Als leerlingen een module beheersen krijgen ze de geheten badge een badge laat zien wat je beheerst"
+}
+
+
+
+
+
 if (nummer == "show") {
   var txt = "0:Wat is de coderclass,1:Hoeveel uur informatica hebben ze per week,2:Tot welke klas gaat het,3:Wat zijn badges ?"
   return bot.sendMessage(msg.from.id,txt);
 
 } else if (nummer == "0") {
-  return bot.sendMessage(msg.from.id,txt2);
+  return bot.sendMessage(msg.from.id,vragen_antwoord.txt2);
 } else if (nummer == "1") {
-
+  return bot.sendMessage(msg.from.id,vragen_antwoord.txt3);
+} else if (nummer == "2") {
+  return bot.sendMessage(msg.from.id,vragen_antwoord.txt4);
+} else if (nummer == "3") {
+  return bot.sendMessage(msg.from.id,vragen_antwoord.txt5);
 }
 
 
